@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>相册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/elastislide.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link href="css/overwrite.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="banner">
+        <div class="wrap">
+            <h2>照片</h2>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="project-wrapper">
+            <div class="project" style="width:100%;">
+                <div class="project-slider">
+                    <div id="rg-gallery" class="rg-gallery">
+                        <div class="rg-thumbs">
+                            <div class="es-carousel-wrapper">
+                                <div class="es-nav">
+                                    <span class="es-nav-prev">上一张</span>
+                                    <span class="es-nav-next">下一张</span>
+                                </div>
+                                <div class="es-carousel"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-bottom">
+                    <div class="proj-desc">
+                        <h4>简介</h4>
+                        <div class="clear"></div>
+                        <p>关于这个相册的介绍</p>
+                    </div>
+                    <div class="related-desc">
+                        <h4>评论</h4>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="">
+                        预留评论框
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/img.js"></script>
+    <script src="js/jquery.tmpl.min.js"></script>
+    <script src="js/jquery.elastislide.js"></script>
+    <script src="js/gallery.js"></script>
+    <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">
+        <div class="rg-image-wrapper">
+            {{if itemsCount > 1}}
+            <div class="rg-image-nav">
+                <a href="#" class="rg-image-nav-prev">上一张</a>
+                <a href="#" class="rg-image-nav-next">下一张</a>
+            </div>
+            {{/if}}
+            <div class="rg-image"></div>
+            <div class="rg-loading"></div>
+            <div class="rg-caption-wrapper">
+                <div class="rg-caption" style="display:none;">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- Add fancyBox main JS and CSS files -->
+    <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+    });
+    </script>
+</body>
+
+</html>

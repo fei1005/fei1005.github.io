@@ -1,0 +1,16 @@
+
+.cssmenu {
+	padding-top: 0 !important;
+	font-weight: bold;
+}
+.logo {
+	width: 52px !important;
+}
+.cssmenu ul li a {
+	padding: 10px 15px !important;
+}
+.head-btn {
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
