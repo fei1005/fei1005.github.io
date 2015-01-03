@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>音乐 | 非你莫属</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+    });
+    </script>
+    <style>
+    .video {
+        text-align: center;
+        width: 432px;
+        margin: auto;
+    }
+    span.txt {
+        font-size: 20px;
+        display: block;
+        margin-top: 20px;
+    }
+    .simple-player {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: middle;
+        *vertical-align: auto;
+        zoom: 1;
+        *display: inline;
+        height: 50px;
+        line-height: 50px;
+        margin-bottom: 30px;
+        width: 350px;
+        position: relative;
+        border: 1px solid #5bc0de;
+        cursor: pointer;
+    }
+    .simple-player .play-btn {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: middle;
+        *vertical-align: auto;
+        zoom: 1;
+        *display: inline;
+        height: 12px;
+        width: 12px;
+        background: url("/icon/play.png") no-repeat;
+        -webkit-background-size: 12px, 12px;
+        -moz-background-size: 12px, 12px;
+        -o-background-size: 12px, 12px;
+        background-size: 12px, 12px;
+        overflow: hidden;
+        margin: 0 15px;
+    }
+    .simple-player.playing .play-btn {
+        background-image: url("/icon/pause.png");
+    }
+    .simple-player .play-progress {
+        filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=30);
+        opacity: 0.3;
+        height: 100%;
+        width: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #5bc0de;
+    }
+    pre.language-javascript {
+        font-size: 14px;
+        padding-bottom: 1.2em;
+    }
+    pre.language-javascript.hotfix {
+        padding-top: 1.8em;
+        padding-bottom: 1.8em;
+    }
+    pre.language-javascript.hotfix code {
+        top: -12px;
+    }
+    body {
+        padding-top: 0;
+    }
+    #playlist-demo {
+        -webkit-box-shadow: -0.6em -0.6em 1em #a1a1a1;
+        -moz-box-shadow: -0.6em -0.6em 1em #a1a1a1;
+        box-shadow: -0.6em -0.6em 1em #a1a1a1;
+        margin-top: 40px;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #BAB7F3;
+    }
+    #playlist-demo li {
+        height: 35px;
+        line-height: 35px;
+        border-bottom: 1px solid #eeeeee;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+    #playlist-demo li:hover {
+        background: #BAB7F3;
+    }
+    #playlist-demo li .time {
+        font-size: 12px;
+        color: #999999;
+        margin-left: 15px;
+    }
+    #playlist-demo li .play-btn {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: middle;
+        *vertical-align: auto;
+        zoom: 1;
+        *display: inline;
+        height: 12px;
+        width: 12px;
+        background: url("/icon/play.png") no-repeat;
+        -webkit-background-size: 12px, 12px;
+        -moz-background-size: 12px, 12px;
+        -o-background-size: 12px, 12px;
+        background-size: 12px, 12px;
+        overflow: hidden;
+        margin-right: 20px;
+    }
+    #playlist-demo li.playing .play-btn {
+        background-image: url("/icon/pause.png");
+    }
+    </style>
+    <link href="css/overwrite.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div class="header"></div>
+
+    <div class="banner">
+        <div class="wrap">
+            <h2>音乐</h2>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="portfolio-top">
+            <div class="wrap">
+                <h3>这里是一些音乐列表</h3>
+                <h5>这里可以写一下描述和话语</h5>
+            </div>
+        </div>
+        <div class="project-wrapper">
+            <div class="wrap">
+                <div class="about-middle">
+                    <h4><span>他的歌</span></h4>
+                </div>
+
+                <ul id="playlist-demo">
+                </ul>
+
+                <div class="about-middle">
+                    <h4><span>他的视频</span></h4>
+                </div>
+                <div class="video">
+                    <span class="txt">灌篮高手</span>
+                    <video id="example_video_1" controls preload="auto" poster="/video/1.png" src="/video/guanlangaoshou1.mp4" type='video/mp4' data-setup='{"example_option":true}' width="432px" height="240px"></video>
+                </div>
+                <div class="video">
+                    <span class="txt">江南style</span>
+                    <video id="example_video_2" controls preload="auto" poster="/video/2.png" src="/video/style1.mp4" type='video/mp4' data-setup='{"example_option":true}' width="432px" height="240px"></video>
+                </div>
+                <div class="video">
+                    <span class="txt">心跳</span>
+                    <video id="example_video_3" controls preload="auto" poster="/video/3.png" src="/video/xintiao1.mp4" type='video/mp4' data-setup='{"example_option":true}' width="432px" height="240px"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer"></div>
+    <script src="js/underscore.js"></script>
+    <script src="js/main.js"></script>
+    <script src="http://labs.music.baidu.com/muplayer/doc/dist/player.js"></script>
+    <script src="js/music.js"></script>
+</body>
+
+</html>

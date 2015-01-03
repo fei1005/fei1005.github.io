@@ -17,6 +17,7 @@ function renderHeader() {
 		'<ul>' +
 		'<li><a href="index.html" class="head-btn">首页</a></li>' +
 		'<li><a href="album.html" class="head-btn">相册</a></li> ' +
+		'<li><a href="music.html" class="head-btn">音乐</a></li>' +
 		'<li><a href="blog.html" class="head-btn">文章</a></li>' +
 		'<li><a href="about.html" class="head-btn">关于</a></li>' +
 		'</ul>' +
@@ -27,7 +28,7 @@ function renderHeader() {
 		route = curRoute();
 	if (route == '404') route = 'index'
 	if (route == 'single') route = 'blog'
-	if (route == 'project') route = 'portfolio'
+	if (route == 'gallery') route = 'album'
 
 	$header.find('a[href="' + route + '.html"]').parent().addClass('active');
 	$('.header').append($header)
