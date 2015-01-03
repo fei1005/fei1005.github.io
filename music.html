@@ -35,65 +35,6 @@
         display: block;
         margin-top: 20px;
     }
-    .simple-player {
-        display: -moz-inline-stack;
-        display: inline-block;
-        vertical-align: middle;
-        *vertical-align: auto;
-        zoom: 1;
-        *display: inline;
-        height: 50px;
-        line-height: 50px;
-        margin-bottom: 30px;
-        width: 350px;
-        position: relative;
-        border: 1px solid #5bc0de;
-        cursor: pointer;
-    }
-    .simple-player .play-btn {
-        display: -moz-inline-stack;
-        display: inline-block;
-        vertical-align: middle;
-        *vertical-align: auto;
-        zoom: 1;
-        *display: inline;
-        height: 12px;
-        width: 12px;
-        background: url("/icon/play.png") no-repeat;
-        -webkit-background-size: 12px, 12px;
-        -moz-background-size: 12px, 12px;
-        -o-background-size: 12px, 12px;
-        background-size: 12px, 12px;
-        overflow: hidden;
-        margin: 0 15px;
-    }
-    .simple-player.playing .play-btn {
-        background-image: url("/icon/pause.png");
-    }
-    .simple-player .play-progress {
-        filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=30);
-        opacity: 0.3;
-        height: 100%;
-        width: 0;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: #5bc0de;
-    }
-    pre.language-javascript {
-        font-size: 14px;
-        padding-bottom: 1.2em;
-    }
-    pre.language-javascript.hotfix {
-        padding-top: 1.8em;
-        padding-bottom: 1.8em;
-    }
-    pre.language-javascript.hotfix code {
-        top: -12px;
-    }
-    body {
-        padding-top: 0;
-    }
     #playlist-demo {
         -webkit-box-shadow: -0.6em -0.6em 1em #a1a1a1;
         -moz-box-shadow: -0.6em -0.6em 1em #a1a1a1;
@@ -127,7 +68,7 @@
         *display: inline;
         height: 12px;
         width: 12px;
-        background: url("/icon/play.png") no-repeat;
+        background-image: url("/icon/play.png");
         -webkit-background-size: 12px, 12px;
         -moz-background-size: 12px, 12px;
         -o-background-size: 12px, 12px;
@@ -190,8 +131,8 @@
 
     <div class="footer"></div>
     <script src="js/underscore.js"></script>
-    <script src="js/main.js"></script>
     <script src="http://labs.music.baidu.com/muplayer/doc/dist/player.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/music.js"></script>
 </body>
 
