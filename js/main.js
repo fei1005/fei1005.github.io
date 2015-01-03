@@ -69,6 +69,7 @@ function renderHeader() {
 function renderFooter() {
 	var footer =
 		'<div class="footer-bottom">' +
+		'<div class="copy" style="font-size:1.2em;float:right;margin-right:80px;"><p class="copy">来稿请投: 23519105@qq.com</p></div>' +
 		'<div class="wrap">' +
 		'<div class="copy">' +
 		'<p class="copy">© 2014 by dracupid</p>' +
