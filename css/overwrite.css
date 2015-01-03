@@ -14,3 +14,10 @@
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 }
+.ds-thread.middle{
+	width:80%;
+	margin: auto;
+}
+.ds-thread{
+	width: 100%;
+}
