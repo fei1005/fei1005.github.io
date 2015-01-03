@@ -2,9 +2,23 @@ $(function() {
 	init();
 })
 
+function playbgm(){
+	window.player = new _mu.Player({
+            mode: 'list',
+            baseDir: 'http://labs.music.baidu.com/muplayer/doc/dist'
+        });
+	player.reset().setCur(encodeURIComponent("/music/夜空中最亮的星.mp3"))
+	startTime = sessionStorage.getItem('PLAYER:time') || 0
+	player.play(startTime);
+	player.on('timeupdate', function(t){
+		sessionStorage.setItem('PLAYER:time', t);
+	});
+}
+
 function init() {
 	renderFooter();
 	renderHeader();
+    playbgm();
 }
 
 function renderHeader() {

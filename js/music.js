@@ -15,7 +15,7 @@ initPlayList = function(){
 	var tpl = 
 		'<div style="display:inline-block;width:50%;border:1px solid #BAB7F3;box-sizing:border-box">' +
 			"<%_.each(songs, function(song){%>" +
-				'<li data-link="music/<%=encodeURIComponent(song)%>"><i class="play-btn"></i><%=song.replace(".mp3", "").replace(".m4a", "")%> - 李正非</li>' +
+				'<li data-link="music/<%=encodeURIComponent(song)%>"><i class="play-btn"></i><%=song.replace(".mp3", "").replace(".m4a", "")%></li>' +
 			"<%});%>" +
 		'</div>',
 		data, left, right, l = Math.ceil(songs.length / 2) , tfun;
@@ -27,11 +27,8 @@ initPlayList = function(){
 }
 
 initPlayer = function(){
-	var player = new _mu.Player({
-            mode: 'list',
-            baseDir: 'http://labs.music.baidu.com/muplayer/doc/dist'
-        }),
-        $pl = $('#playlist-demo'),
+	player.pause()
+	var $pl = $('#playlist-demo'),
         reset = function() {
             $pl.find('li').removeClass('playing pause')
                 .find('.time').remove();
@@ -46,7 +43,6 @@ initPlayer = function(){
     $pl.on('click', 'li', function() {
         var $this = $(this),
             sids;
-
         if ($this.hasClass('playing')) {
             player.pause();
         } else if ($this.hasClass('pause')) {
@@ -67,7 +63,7 @@ initPlayer = function(){
     }).on('ended', reset).on('timeupdate', function() {
         $time.text(player.curPos(true) + ' / ' + player.duration(true));
     }).on('player:play', function(){
-		reset();
+    	reset()
         findCurrItem().addClass("playing");
     });
 }
