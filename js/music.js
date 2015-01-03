@@ -8,6 +8,7 @@ var songs = ["彩虹.mp3","传奇1(弹奏).mp3","传奇2(弹奏).mp3","给我一
 $(function(){
 	initPlayList();
 	setTimeout(initPlayer, 100);
+    $('<img src="/icon/pause.png" />')
 });
 
 
