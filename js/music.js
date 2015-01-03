@@ -2,7 +2,7 @@ var songs = ["彩虹.mp3","传奇1(弹奏).mp3","传奇2(弹奏).mp3","给我一
 "红尘客栈(弹奏).mp3","可惜不是你.mp3", "慢慢.mp3", "明明就(弹奏).m4a","明明就(弹奏)2.m4a",
 "那些年.mp3","情歌.mp3","人质.mp3","人质(弹奏).mp3","圣诞快乐(弹奏).mp3","天马座の幻想(弹奏).mp3",
 "突然好想你(弹奏).mp3","我的歌声里.mp3","下一个天亮(弹奏).mp3","夜空中最亮的星.mp3",
-"指弹.mp3","Let it go.mp3","memory二人版（修改版）.mp3","memory二人版（修改版2）.mp3","what are words(弹奏).mp3"]
+"指弹.mp3","Let it go.mp3","memory二人版（修改版）.mp3","memory二人版（修改版2）.mp3","what are words(弹奏).mp3","非你莫属.mp3"]
 
 
 $(function(){
@@ -23,7 +23,7 @@ initPlayList = function(){
 	left = songs.slice(0, l);
 	right = songs.slice(l);
 	tfun = _.template(tpl);
-	data = tfun({songs: right}) + tfun({songs: left});
+	data = tfun({songs: left}) + tfun({songs: right});
 	$('#playlist-demo').html(data);
 }
 
@@ -64,7 +64,7 @@ initPlayer = function(){
     }).on('ended', reset).on('timeupdate', function() {
         $time.text(player.curPos(true) + ' / ' + player.duration(true));
     }).on('player:play', function(){
-    	reset()
+        reset()
         findCurrItem().addClass("playing");
     });
 }
