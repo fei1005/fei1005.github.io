@@ -20,7 +20,7 @@ function init() {
 	renderHeader();
     playbgm();
     var $ds = $('.ds-thread');
-    if($ds){
+    if($ds.length){
     	$ds.data('url', location.href);
     	initDuoshuo();
     }
