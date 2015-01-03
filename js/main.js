@@ -4,7 +4,7 @@ $(function() {
 
 function playbgm(){
 	window.player = new _mu.Player({
-            mode: 'list',
+            mode: 'loop',
             baseDir: 'http://labs.music.baidu.com/muplayer/doc/dist'
         });
 	player.reset().setCur(encodeURIComponent("/music/夜空中最亮的星.mp3"))
