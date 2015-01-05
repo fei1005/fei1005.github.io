@@ -3,7 +3,7 @@ var collection = {};
 var albums = [
     ['作品', 3, 'wenti'],
     ['运动', 14, "wenti"],
-    ['自拍', 33, 'qingchun'],
+    ['自拍', 34, 'qingchun'],
     ['服饰文化节', 8, 'wenti'],
     ["指挥", 5, 'wenti'],
     ["写真",  6, 'qingchun' ],
@@ -13,13 +13,14 @@ var albums = [
     ['毕业', 22, 'xiaoyuan'],
     ["厦门", 58, 'lvyou'],
     ['街拍', 7, 'qingchun'],
-    ['合影', 3, 'xiaoyuan'],
-    ['点滴', 45, 'shenghuo'],
+    ['合影', 4, 'xiaoyuan'],
+    ['点滴', 52, 'shenghuo'],
     ["海边", 10, 'lvyou'],
     ["景山", 4, 'lvyou'],
     ["云台山-洛阳", 21, 'lvyou']
 ]
-var flow = [5, 2]
+var flow = [5, 2];
+var include = ["毕业/1","厦门/53", "指挥/5"]
 
 $(function(){
     if(curRoute() === 'gallery'){
@@ -72,6 +73,11 @@ function renderImageFlow(){
     _.each(flow, function(num){
         var a = albums[num];
         for(var i = 1; i <= a[1]; i++){
+            if(a[0] == "自拍"){
+                if(i == 9 || i == 10 || i == 27 || i == 11 || i == 17 || i == 24){
+                    continue ;
+                }
+            }
         tpl +=
             '<li>' +
                 '<a href="photo/' + a[0] + "/" + i + '.jpg" rel="lightbox" class="cboxElement">' +
@@ -80,6 +86,15 @@ function renderImageFlow(){
             '</li>'
     }
     });
+
+    _.each(include, function(path){
+        tpl +=
+            '<li>' +
+                '<a href="photo/' + path + '.jpg" rel="lightbox" class="cboxElement">' +
+                    '<img src="photo/' + path + '.jpg" width="200" height="auto">' +
+                '</a>' +
+            '</li>'
+    })
 
     $('#tiles').html(tpl);
 
