@@ -1,16 +1,25 @@
-var albumNum = {
-    '1' : 10
-}
+var collection = {};
 
 var albums = [
-    {
-        id: '',
-        name: '',
-        imgNum: '',
-        catelog: ''
-
-    }
+    ['作品', 3, 'wenti'],
+    ['运动', 14, "wenti"],
+    ['自拍', 33, 'qingchun'],
+    ['服饰文化节', 8, 'wenti'],
+    ["指挥", 5, 'wenti'],
+    ["写真",  6, 'qingchun' ],
+    ['戏剧', 1, 'wenti'],
+    ['其他', 36, 'lvyou'],
+    ["校园生活", 23, 'xiaoyuan'],
+    ['毕业', 22, 'xiaoyuan'],
+    ["厦门", 58, 'lvyou'],
+    ['街拍', 7, 'qingchun'],
+    ['合影', 3, 'xiaoyuan'],
+    ['点滴', 45, 'shenghuo'],
+    ["海边", 10, 'lvyou'],
+    ["景山", 4, 'lvyou'],
+    ["云台山-洛阳", 21, 'lvyou']
 ]
+var flow = [5, 2]
 
 $(function(){
     if(curRoute() === 'gallery'){
@@ -25,63 +34,55 @@ $(function(){
 })
 
 function renderAlbum(){
-    _.forEach(albums, function(album){
-        var id = album.id,
-            name = album.name,
-            num = album.name,
-            catelog = album.catelog;
-        var tpl =   '<div class="portfolio <%=catelog%> mix_all" data-cat="<%=catelog%>" style="display: inline-block; opacity: 1;">' +
-                        '<div class="portfolio-wrapper">' +
-                            '<a href="gallery.html/?albun=<%albumId%>&imgNum=<%imgNum%>">' +
-                                '<img src="images/album/<%=albumId%>/<%imgNum%>.jpg" alt="<%=name%>">' +
-                            '</a>' +
-                            '<div class="links">' +
-                                '<h4><a href=""><%=name%></a></h4>' +
-                            '</div>' +
+    var dom = ''
+    var tpl = _.template('<div class="portfolio <%=catelog%> mix_all" data-cat="<%=catelog%>" style="display: inline-block; opacity: 1;">' +
+                    '<div class="portfolio-wrapper">' +
+                        '<a href="gallery.html?name=<%=name%>&num=<%=num%>">' +
+                            '<img src="photo/<%=name%>/1.jpg" alt="<%=name%>" style="height:300px;margin:auto;">' +
+                        '</a>' +
+                        '<div class="links">' +
+                            '<h4><a href=""><%=name%></a></h4>' +
                         '</div>' +
-                    '</div>'
-
+                    '</div>' +
+                '</div>')
+    _.forEach(albums, function(album){
+        a = {name:album[0], num: album[1], catelog: album[2]};
+        dom += tpl(a);
     });
+    $('.wrapper').html(dom + '<div class="clear"> </div>')
 }
 
 function renderImage(){
-    var album = query.album || 1,
-        num = albumNum[album],
+    var album = query.name || '作品',
+        num = query.num || 3,
         tpl = '';
     for(var i = 1; i <= num; i++){
         tpl +=
             '<li><a href="#">' +
-                '<img src="images/album/' + album + '/' + i + '.jpg" data-large="images/album/' + album + '/' + i + '.jpg"/>' +
+                '<img src="photo/' + album + '/' + i + '.jpg" data-large="photo/' + album + '/' + i + '.jpg"/>' +
             '</a></li>'
     }
-    for(var i = 1; i <= num; i++){
-        tpl +=
-            '<li><a href="#">' +
-                '<img src="images/album/' + album + '/' + i + '.jpg" data-large="images/' + i + '.jpg"/>' +
-            '</a></li>'
-    }
+
     $('.es-carousel').html('<ul>' + tpl + '</ul>')
 }
 
 function renderImageFlow(){
     var tpl = '';
-    for(var i = 1; i <= 10; i++){
+
+    _.each(flow, function(num){
+        var a = albums[num];
+        for(var i = 1; i <= a[1]; i++){
         tpl +=
             '<li>' +
-                '<a href="images/album/1/' + i + '.jpg" rel="lightbox" class="cboxElement">' +
-                    '<img src="images/album/1/' + i + '.jpg" width="200" height="auto">' +
+                '<a href="photo/' + a[0] + "/" + i + '.jpg" rel="lightbox" class="cboxElement">' +
+                    '<img src="photo/' + a[0] + "/" + i + '.jpg" width="200" height="auto">' +
                 '</a>' +
             '</li>'
     }
-    for(var i = 1; i <= 10; i++){
-        tpl +=
-            '<li>' +
-                '<a href="images/album/1/' + i + '.jpg" rel="lightbox" class="cboxElement">' +
-                    '<img src="images/album/1/' + i + '.jpg" width="200" height="auto">' +
-                '</a>' +
-            '</li>'
-    }
+    });
+
     $('#tiles').html(tpl);
+
     $('#tiles').imagesLoaded(function() {
         // Prepare layout options.
         var options = {
